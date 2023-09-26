@@ -1,0 +1,37 @@
+package homework5;
+
+public class BankAccount {
+
+    public static void main(String[] args) {
+        int N = 21;
+        int days = daysToEmptyAccount(N);
+        System.out.println("Для снятия всех денег с банковского счета потребуется " + days + " дней.");
+    }
+
+        public static int daysToEmptyAccount(int N) {
+            if (N == 0) {
+                return 0;
+            }
+
+            int maxWithdrawal = 1;
+            for (int i = 2; i <= N; i++) {
+                if (N % i == 0) {
+                    maxWithdrawal = i;
+                    break;
+                }
+            }
+
+            return 1 + daysToEmptyAccount(N - maxWithdrawal);
+        }
+
+
+    }
+
+C:\Users\milao\.jdks\openjdk-20.0.2\bin\java.exe "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.1\lib\idea_rt.jar=52959:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.1\bin" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath C:\Users\milao\IdeaProjects\Java\JavaBasisCourse220823m\out\production\JavaBasisCourse220823m homework5.BankAccount
+Для снятия всех денег с банковского счета потребуется 10 дней.
+
+Process finished with exit code 0
+
+
+
+
